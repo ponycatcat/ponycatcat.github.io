@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>黃芃佾 Pony - 家教老師 | Private Tutor</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a2332;
+            --accent: #c49a6c;
+            --accent-light: #d4b896;
+            --accent-dark: #a07d55;
+            --bg: #faf9f7;
+            --bg-alt: #f0ede8;
+            --text: #1a2332;
+            --text-light: #5a6577;
+            --card-shadow: 0 4px 24px rgba(26,35,50,0.08);
+        }
+
+        body {
+            font-family: 'Noto Sans TC', 'Inter', sans-serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.8;
+            cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><path d='M4 12 L6 3 L10 9' fill='%23FFB366'/><path d='M28 12 L26 3 L22 9' fill='%23FFB366'/><circle cx='16' cy='17' r='11' fill='%23FFD699'/><path d='M4 12 L6 3 L10 9' fill='none' stroke='%23C47F30' stroke-width='0.8'/><path d='M28 12 L26 3 L22 9' fill='none' stroke='%23C47F30' stroke-width='0.8'/><circle cx='11' cy='15' r='2.5' fill='white'/><circle cx='21' cy='15' r='2.5' fill='white'/><circle cx='12' cy='15' r='1.5' fill='%23333'/><circle cx='22' cy='15' r='1.5' fill='%23333'/><circle cx='12.5' cy='14.3' r='0.6' fill='white'/><circle cx='22.5' cy='14.3' r='0.6' fill='white'/><ellipse cx='16' cy='19.5' rx='1.2' ry='0.8' fill='%23FF9999'/><path d='M14.5 20.5 Q16 22 17.5 20.5' fill='none' stroke='%23C47F30' stroke-width='0.8'/><line x1='5' y1='17' x2='1' y2='15.5' stroke='%23C47F30' stroke-width='0.6'/><line x1='5' y1='19' x2='1' y2='19' stroke='%23C47F30' stroke-width='0.6'/><line x1='27' y1='17' x2='31' y2='15.5' stroke='%23C47F30' stroke-width='0.6'/><line x1='27' y1='19' x2='31' y2='19' stroke='%23C47F30' stroke-width='0.6'/></svg>") 16 16, auto;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 60px;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            background: rgba(26,35,50,0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 16px rgba(26,35,50,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 20px;
+            flex-wrap: wrap;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 6px 14px;
+            border-radius: 20px;
+            transition: all 0.3s;
+        }
+
+        .navbar a:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        /* Language Toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 60px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.12);
+            overflow: hidden;
+        }
+
+        .lang-btn {
+            padding: 8px 18px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-light);
+            transition: all 0.3s;
+        }
+
+        .lang-btn.active {
+            background: var(--accent);
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #f0ede8 0%, #e8dfd4 50%, #f5f0ea 100%);
+            padding: 60px 20px;
+        }
+
+        .hero-content {
+            max-width: 1100px;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .hero-photo {
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 8px 32px rgba(26,35,50,0.12), 0 0 0 3px var(--accent-light);
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 8px;
+            color: var(--primary);
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.3rem;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .hero-text .intro {
+            font-size: 1.05rem;
+            color: var(--text-light);
+            max-width: 500px;
+            line-height: 2;
+        }
+
+        .contact-pills {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+            flex-wrap: wrap;
+        }
+
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: white;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            box-shadow: var(--card-shadow);
+            color: var(--text);
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+        .pill:hover {
+            transform: translateY(-2px);
+        }
+
+        .pill svg {
+            width: 18px;
+            height: 18px;
+            fill: var(--accent);
+        }
+
+        /* Section */
+        section {
+            padding: 80px 20px;
+        }
+
+        section:nth-child(even) {
+            background: var(--bg-alt);
+        }
+
+        .section-inner {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-light));
+            border-radius: 2px;
+        }
+
+        /* Cards Grid */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: var(--primary);
+        }
+
+        .card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--accent-light);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 28px;
+            padding-left: 20px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -34px;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            background: var(--accent);
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--accent-light);
+        }
+
+        .timeline-year {
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .timeline-item h3 {
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+
+        .timeline-item p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Badges */
+        .badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 18px;
+            background: white;
+            border: 2px solid var(--accent-light);
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--accent);
+        }
+
+        /* Teaching Philosophy */
+        .philosophy-box {
+            background: linear-gradient(135deg, #1a2332 0%, #2c3e50 100%);
+            color: white;
+            border-radius: 20px;
+            padding: 40px;
+            font-size: 1.1rem;
+            line-height: 2;
+            box-shadow: 0 8px 32px rgba(26,35,50,0.25);
+            border-left: 5px solid var(--accent);
+        }
+
+        .philosophy-box h3 {
+            font-size: 1.4rem;
+            margin-bottom: 16px;
+        }
+
+        /* Photo Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 16px;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.03);
+        }
+
+        .gallery-item {
+            text-align: center;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 16px;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s;
+            cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='36' height='36' viewBox='0 0 36 36'><path d='M5 14 L7 4 L12 11' fill='%23FFB366'/><path d='M31 14 L29 4 L24 11' fill='%23FFB366'/><circle cx='18' cy='19' r='12' fill='%23FFD699'/><path d='M5 14 L7 4 L12 11' fill='none' stroke='%23C47F30' stroke-width='0.8'/><path d='M31 14 L29 4 L24 11' fill='none' stroke='%23C47F30' stroke-width='0.8'/><circle cx='13' cy='17' r='2.8' fill='white'/><circle cx='23' cy='17' r='2.8' fill='white'/><ellipse cx='13.5' cy='17' rx='1.8' ry='2.2' fill='%23FF69B4'/><ellipse cx='23.5' cy='17' rx='1.8' ry='2.2' fill='%23FF69B4'/><circle cx='14' cy='16' r='0.7' fill='white'/><circle cx='24' cy='16' r='0.7' fill='white'/><ellipse cx='18' cy='21.5' rx='1.3' ry='0.9' fill='%23FF9999'/><path d='M16 22.5 Q18 24.5 20 22.5' fill='none' stroke='%23C47F30' stroke-width='0.8'/><line x1='6' y1='19' x2='1' y2='17.5' stroke='%23C47F30' stroke-width='0.6'/><line x1='6' y1='21' x2='1' y2='21' stroke='%23C47F30' stroke-width='0.6'/><line x1='30' y1='19' x2='35' y2='17.5' stroke='%23C47F30' stroke-width='0.6'/><line x1='30' y1='21' x2='35' y2='21' stroke='%23C47F30' stroke-width='0.6'/><text x='10' y='32' font-size='8' fill='%23C47F30'>click!</text></svg>") 18 18, pointer;
+        }
+
+        .gallery-item img:hover {
+            transform: scale(1.03);
+        }
+
+        a, button, .pill, .cta-btn, .lang-btn, .navbar a, .photo-sidebar button {
+            cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><path d='M4 12 L6 3 L10 9' fill='%23FFB366'/><path d='M28 12 L26 3 L22 9' fill='%23FFB366'/><circle cx='16' cy='17' r='11' fill='%23FFD699'/><circle cx='11' cy='15' r='2.5' fill='white'/><circle cx='21' cy='15' r='2.5' fill='white'/><circle cx='12' cy='15' r='1.5' fill='%23333'/><circle cx='22' cy='15' r='1.5' fill='%23333'/><circle cx='12.5' cy='14.3' r='0.6' fill='white'/><circle cx='22.5' cy='14.3' r='0.6' fill='white'/><ellipse cx='16' cy='19.5' rx='1.2' ry='0.8' fill='%23FF9999'/><path d='M13.5 20.8 Q16 23 18.5 20.8' fill='none' stroke='%23C47F30' stroke-width='1'/><path d='M8 24 Q16 30 24 24' fill='none' stroke='%23C47F30' stroke-width='0.8'/></svg>") 16 16, pointer;
+        }
+
+        /* Lightbox */
+        .lightbox-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.85);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .lightbox-overlay.active {
+            opacity: 1;
+        }
+
+        .lightbox-overlay img {
+            max-width: 90vw;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: 300;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .gallery-caption {
+            margin-top: 8px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .category-block {
+            margin-bottom: 48px;
+        }
+
+        .category-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 20px;
+            padding-left: 14px;
+            border-left: 4px solid var(--accent);
+        }
+
+        /* Photo Section Layout */
+        .photo-layout {
+            display: flex;
+            gap: 30px;
+        }
+
+        .photo-sidebar {
+            width: 200px;
+            flex-shrink: 0;
+            position: sticky;
+            top: 80px;
+            align-self: flex-start;
+        }
+
+        .photo-sidebar button {
+            display: block;
+            width: 100%;
+            text-align: left;
+            padding: 10px 16px;
+            margin-bottom: 6px;
+            border: none;
+            background: transparent;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+
+        .photo-sidebar button:hover {
+            background: var(--bg-alt);
+            color: var(--text);
+        }
+
+        .photo-sidebar button.active {
+            background: var(--accent);
+            color: white;
+        }
+
+        .photo-main {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .category-block.hidden {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .photo-layout {
+                flex-direction: column;
+            }
+            .photo-sidebar {
+                width: 100%;
+                position: static;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 6px;
+            }
+            .photo-sidebar button {
+                width: auto;
+                margin-bottom: 0;
+            }
+        }
+
+        /* CTA */
+        .cta {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #e85d04, #f48c06, #e85d04);
+            color: white;
+        }
+
+        .cta h2 {
+            font-size: 2.2rem;
+            margin-bottom: 16px;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .cta p {
+            font-size: 1.15rem;
+            opacity: 0.95;
+            margin-bottom: 30px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 16px 42px;
+            background: white;
+            color: #e85d04;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 1.15rem;
+            font-weight: 700;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-light);
+            font-size: 0.85rem;
+        }
+
+        /* Bilingual */
+        .en { display: none; }
+
+        body.lang-en .zh { display: none; }
+        body.lang-en .en { display: block; }
+        body.lang-en .en.inline { display: inline; }
+        body.lang-en .zh.inline { display: none; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-text h1 { font-size: 2.2rem; }
+            .hero-photo { width: 240px; height: 240px; }
+            .hero-content { gap: 30px; }
+            section { padding: 50px 20px; }
+            .philosophy-box { padding: 28px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="#hero">
+            <span class="zh inline">首頁</span>
+            <span class="en inline">Home</span>
+        </a>
+        <a href="#subjects">
+            <span class="zh inline">教學科目</span>
+            <span class="en inline">Subjects</span>
+        </a>
+        <a href="#experience">
+            <span class="zh inline">教學經歷</span>
+            <span class="en inline">Experience</span>
+        </a>
+        <a href="#volunteer">
+            <span class="zh inline">志工經歷</span>
+            <span class="en inline">Volunteer</span>
+        </a>
+        <a href="#certs">
+            <span class="zh inline">成績檢定</span>
+            <span class="en inline">Scores</span>
+        </a>
+        <a href="#philosophy">
+            <span class="zh inline">教學理念</span>
+            <span class="en inline">Philosophy</span>
+        </a>
+        <a href="#photos">
+            <span class="zh inline">教學紀錄</span>
+            <span class="en inline">Portfolio</span>
+        </a>
+        <a href="#contact">
+            <span class="zh inline">聯繫我</span>
+            <span class="en inline">Contact</span>
+        </a>
+    </nav>
+
+    <!-- Language Toggle -->
+    <div class="lang-toggle">
+        <button class="lang-btn active" onclick="setLang('zh')">中文</button>
+        <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <img src="photos/daily/photo.jpg.jpg" alt="Pony" class="hero-photo">
+            <div class="hero-text">
+                <h1>
+                    <span class="zh inline">黃芃佾</span>
+                    <span class="en inline">Pony Huang</span>
+                </h1>
+                <div class="subtitle">
+                    <span class="zh inline">家教老師 | 用心陪伴每位學生</span>
+                    <span class="en inline">Private Tutor | Dedicated to Every Student</span>
+                </div>
+                <div class="intro">
+                    <span class="zh">東吳大學資訊管理學系在學中。擅長國文、數學、英文，擁有豐富的家教與教學經驗。用溫暖且有耐心的方式，幫助每位學生找到學習的節奏。</span>
+                    <span class="en">Currently studying Information Management at Soochow University. Specializing in Chinese, Math, and English with extensive tutoring experience. I help every student find their learning rhythm with warmth and patience.</span>
+                </div>
+                <div class="contact-pills">
+                    <a href="https://line.me/ti/p/~alicehuang0718" class="pill" target="_blank">
+                        <svg viewBox="0 0 24 24"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+                        LINE: alicehuang0718
+                    </a>
+                    <a href="tel:0966465675" class="pill">
+                        <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.58 1 1 0 01-.25 1.01l-2.2 2.2z"/></svg>
+                        0966-465-675
+                    </a>
+                    <a href="mailto:alicehuang0718@gmail.com" class="pill">
+                        <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        alicehuang0718@gmail.com
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Subjects -->
+    <section id="subjects">
+        <div class="section-inner">
+            <h2 class="section-title">
+                <span class="zh inline">教學科目</span>
+                <span class="en inline">Subjects</span>
+            </h2>
+            <div class="cards">
+                <div class="card">
+                    <div class="card-icon">&#x1F4D0;</div>
+                    <h3>
+                        <span class="zh inline">數學</span>
+                        <span class="en inline">Mathematics</span>
+                    </h3>
+                    <p>
+                        <span class="zh">國小 ~ 高中數學、學測數B、分科數甲</span>
+                        <span class="en">Elementary to high school math, GSAT Math B, AST Math A</span>
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">&#x1F4DA;</div>
+                    <h3>
+                        <span class="zh inline">國文</span>
+                        <span class="en inline">Chinese</span>
+                    </h3>
+                    <p>
+                        <span class="zh">學測國文頂標13級分、作文19分</span>
+                        <span class="en">GSAT Chinese: Top-tier Level 13, Essay: 19/21</span>
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">&#x1F30F;</div>
+                    <h3>
+                        <span class="zh inline">英文</span>
+                        <span class="en inline">English</span>
+                    </h3>
+                    <p>
+                        <span class="zh">TOEIC 750、全民英檢中級通過</span>
+                        <span class="en">TOEIC 750, GEPT Intermediate Certified</span>
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">&#x1F3DB;</div>
+                    <h3>
+                        <span class="zh inline">社會科</span>
+                        <span class="en inline">Social Studies</span>
+                    </h3>
+                    <p>
+                        <span class="zh">學測社會、公民與社會</span>
+                        <span class="en">GSAT Social Studies, Civics & Society</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Timeline -->
+    <section id="experience">
+        <div class="section-inner">
+            <h2 class="section-title">
+                <span class="zh inline">教學經歷</span>
+                <span class="en inline">Teaching Experience</span>
+            </h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">2025</div>
+                    <h3>
+                        <span class="zh inline">高二數學家教</span>
+                        <span class="en inline">High School Math Tutor (Grade 11)</span>
+                    </h3>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2025</div>
+                    <h3>
+                        <span class="zh inline">學測社會家教</span>
+                        <span class="en inline">GSAT Social Studies Tutor</span>
+                    </h3>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2025</div>
+                    <h3>
+                        <span class="zh inline">教育部學伴計畫</span>
+                        <span class="en inline">MOE Companion Program</span>
+                    </h3>
+                    <p>
+                        <span class="zh">輔導國二生 + 小四生數學</span>
+                        <span class="en">Tutored a 8th grader and a 4th grader in Math</span>
+                    </p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2025</div>
+                    <h3>
+                        <span class="zh inline">TOP 全英文營隊帶班助教</span>
+                        <span class="en inline">Teaching Assistant at TOP English Camp</span>
+                    </h3>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2025</div>
+                    <h3>
+                        <span class="zh inline">分科數學 & 公民家教</span>
+                        <span class="en inline">AST Math & Civics Tutor</span>
+                    </h3>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2024</div>
+                    <h3>
+                        <span class="zh inline">嘉義女中高二數學 & 國文家教</span>
+                        <span class="en inline">Chiayi Girls' High School Math & Chinese Tutor (Grade 11)</span>
+                    </h3>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2024</div>
+                    <h3>
+                        <span class="zh inline">國小美語教學</span>
+                        <span class="en inline">Elementary English Teacher (Summer)</span>
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Volunteer / Special Experience -->
+    <section id="volunteer">
+        <div class="section-inner">
+            <h2 class="section-title">
+                <span class="zh inline">志工與特別經歷</span>
+                <span class="en inline">Volunteer & Special Experience</span>
+            </h2>
+            <div class="cards">
+                <div class="card">
+                    <div class="card-icon">&#x2600;</div>
+                    <h3>
+                        <span class="zh inline">小太陽協會</span>
+                        <span class="en inline">Little Sun Association</span>
+                    </h3>
+                    <p>
+                        <span class="zh">幫助弱勢家庭學生輔導數學、英文、物理等課業</span>
+                        <span class="en">Tutored students from disadvantaged families in Math, English, and Physics</span>
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">&#x1F4BB;</div>
+                    <h3>
+                        <span class="zh inline">線上輔導</span>
+                        <span class="en inline">Online Tutoring</span>
+                    </h3>
+                    <p>
+                        <span class="zh">線上輔導弱勢家庭國小3、4年級數學</span>
+                        <span class="en">Online math tutoring for 3rd-4th graders from disadvantaged families</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications -->
+    <section id="certs">
+        <div class="section-inner">
+            <h2 class="section-title">
+                <span class="zh inline">成績與檢定</span>
+                <span class="en inline">Scores & Certifications</span>
+            </h2>
+            <div class="badges">
+                <span class="badge">TOEIC 750 (2025)</span>
+                <span class="badge">
+                    <span class="zh inline">全民英檢中級 (2021)</span>
+                    <span class="en inline">GEPT Intermediate (2021)</span>
+                </span>
+                <span class="badge">
+                    <span class="zh inline">學測國文 頂標13級</span>
+                    <span class="en inline">GSAT Chinese: Top Level 13</span>
+                </span>
+                <span class="badge">
+                    <span class="zh inline">作文 19/21 分</span>
+                    <span class="en inline">Essay 19/21</span>
+                </span>
+                <span class="badge">
+                    <span class="zh inline">學測英文 前標11級</span>
+                    <span class="en inline">GSAT English: Level 11</span>
+                </span>
+                <span class="badge">
+                    <span class="zh inline">學測數B 前標10級</span>
+                    <span class="en inline">GSAT Math B: Level 10</span>
+                </span>
+                <span class="badge">
+                    <span class="zh inline">分科數甲 37級</span>
+                    <span class="en inline">AST Math A: Level 37</span>
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teaching Philosophy -->
+    <section id="philosophy">
+        <div class="section-inner">
+            <div class="philosophy-box">
+                <h3>
+                    <span class="zh inline">教學理念</span>
+                    <span class="en inline">Teaching Philosophy</span>
+                </h3>
+                <p class="zh">
+                    在教學時我會拉近與學生的距離，不是那種死板板的「我教你聽」。<br><br>
+                    我自己以前成績也不是到很好，基本上都是靠自己摸索出來的。曾經微積分都看不懂，聽老師上課也聽不懂，最後是靠自己慢慢讀起來的。所以我特別能體會學數學不懂時的那種無助感。<br><br>
+                    正因為走過這段路，我更知道怎麼用學生聽得懂的方式來教學。
+                </p>
+                <p class="en">
+                    I believe in building a close, comfortable relationship with my students — not the rigid "I teach, you listen" style.<br><br>
+                    My own grades weren't always great. I figured things out on my own — there was a time when I couldn't understand calculus at all, even in class. I slowly taught myself and worked through it. That's why I truly understand the helplessness students feel when math doesn't click.<br><br>
+                    Having walked that path myself, I know how to explain things in a way students can actually understand.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery by Category -->
+    <section id="photos">
+        <div class="section-inner">
+            <h2 class="section-title">
+                <span class="zh inline">教學紀錄</span>
+                <span class="en inline">Teaching Portfolio</span>
+            </h2>
+            <div class="photo-layout">
+                <div class="photo-sidebar" id="photo-sidebar"></div>
+                <div class="photo-main" id="photo-gallery"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" id="contact">
+        <h2>
+            <span class="zh inline">想找家教？歡迎聯繫我！</span>
+            <span class="en inline">Looking for a Tutor? Contact Me!</span>
+        </h2>
+        <p>
+            <span class="zh inline">讓我陪你一起找到學習的方法</span>
+            <span class="en inline">Let me help you find your way to learn</span>
+        </p>
+        <a href="https://line.me/ti/p/~alicehuang0718" class="cta-btn" target="_blank">
+            <span class="zh inline">加 LINE 聯繫我</span>
+            <span class="en inline">Add me on LINE</span>
+        </a>
+    </section>
+
+    <footer>
+        &copy; 2025 黃芃佾 Pony Huang. All rights reserved.
+    </footer>
+
+    <script>
+        function setLang(lang) {
+            document.body.className = lang === 'en' ? 'lang-en' : '';
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.textContent.trim() === (lang === 'en' ? 'EN' : '中文'));
+            });
+        }
+
+        /*
+         * 照片分類設定 — 按資料夾結構排列
+         * 每個分類有：titleZh, titleEn, basePath, photos[]
+         */
+        const categories = [
+            {
+                id: "top-camp",
+                titleZh: "TOP 全英文營隊",
+                titleEn: "TOP English Camp",
+                photos: [
+                    { path: "photos/teaching/top營隊/9F9A4338-F1E3-497B-840B-D6865D6FC3DD.jpg", zh: "營隊活動", en: "Camp activity" },
+                    { path: "photos/teaching/top營隊/F01F4D65-6F51-42E9-ACD4-19B41B2FAFCF.jpg", zh: "開幕典禮", en: "Opening ceremony" },
+                    { path: "photos/teaching/top營隊/F66ACF22-80AC-4BF7-BB47-B7E64EA8B06C.jpg", zh: "團隊合照", en: "Team photo" },
+                    { path: "photos/teaching/top營隊/S__102998034_0.jpg", zh: "歡樂合影", en: "Fun group photo" },
+                    { path: "photos/teaching/top營隊/S__102998037_0.jpg", zh: "帶動跳", en: "Dance performance" },
+                    { path: "photos/teaching/top營隊/S__102998045.jpg", zh: "營隊活動", en: "Camp activity" },
+                    { path: "photos/teaching/top營隊/S__102998046.jpg", zh: "營隊活動", en: "Camp activity" },
+                    { path: "photos/teaching/top營隊/S__102998049.jpg", zh: "營隊活動", en: "Camp activity" },
+                ]
+            },
+            {
+                id: "companion",
+                titleZh: "教育部學伴計畫",
+                titleEn: "MOE Companion Program",
+                photos: [
+                    { path: "photos/teaching/學伴/上課照片/S__102998050.jpg", zh: "線上教學", en: "Online tutoring" },
+                    { path: "photos/teaching/學伴/學生合照/S__102998051.jpg", zh: "與學生合照", en: "With student" },
+                    { path: "photos/teaching/學伴/學生合照/S__102998052.jpg", zh: "與學生合照", en: "With student" },
+                    { path: "photos/teaching/學伴/感謝小卡/1D964CEA-4E10-46A9-B46A-310F8CC4591F.jpg", zh: "學生感謝小卡", en: "Thank you card" },
+                    { path: "photos/teaching/學伴/感謝小卡/9F874AAD-1AB3-4808-9824-FC72B877FAE8.jpg", zh: "學生感謝小卡", en: "Thank you card" },
+                    { path: "photos/teaching/學伴/感謝小卡/B7B952BE-CDEB-4687-95B9-11BF13427916.jpg", zh: "學生感謝小卡", en: "Thank you card" },
+                    { path: "photos/teaching/學伴/感謝小卡/C22B2505-41FC-4E24-A9E5-8128021D0C24.jpg", zh: "學生感謝小卡", en: "Thank you card" },
+                ]
+            },
+            {
+                id: "tutor",
+                titleZh: "家教",
+                titleEn: "Private Tutoring",
+                photos: [
+                    { path: "photos/teaching/家教/S__102998038_0_cat.jpg", zh: "教學中", en: "In session" },
+                    { path: "photos/teaching/家教/526F86CC-5F1B-402C-B896-59D7A92D6F69.jpg", zh: "學生送的聖誕禮物", en: "Christmas gift from student" },
+                ]
+            },
+            {
+                id: "results",
+                titleZh: "學生成果",
+                titleEn: "Student Achievements",
+                photos: [
+                    { path: "photos/results/S__102998039.jpg", zh: "學生成績", en: "Student result" },
+                    { path: "photos/results/S__102998047.jpg", zh: "學生成績", en: "Student result" },
+                    { path: "photos/results/S__102998048.jpg", zh: "學生成績", en: "Student result" },
+                    { path: "photos/results/S__102998053.jpg", zh: "學生成績", en: "Student result" },
+                ]
+            },
+            {
+                id: "notes",
+                titleZh: "解題筆記與教材",
+                titleEn: "Notes & Teaching Materials",
+                photos: [
+                    { path: "photos/解題與部分筆記/數學/S__7151620_0.jpg", zh: "數學解題", en: "Math notes" },
+                    { path: "photos/解題與部分筆記/數學/S__7151621_0.jpg", zh: "數學解題", en: "Math notes" },
+                    { path: "photos/解題與部分筆記/數學/S__7151622_0.jpg", zh: "數學解題", en: "Math notes" },
+                    { path: "photos/解題與部分筆記/公民/S__7151625_0.jpg", zh: "公民解題", en: "Civics notes" },
+                    { path: "photos/解題與部分筆記/公民/S__7151626_0.jpg", zh: "公民解題", en: "Civics notes" },
+                    { path: "photos/解題與部分筆記/公民/S__7151627_0.jpg", zh: "公民解題", en: "Civics notes" },
+                ],
+                pdf: { path: "photos/解題與部分筆記/學伴/113年教育部數位學伴計畫.pdf.pdf", zh: "113年教育部數位學伴計畫簡報", en: "2024 MOE Digital Companion Program Slides" }
+            },
+            {
+                id: "daily",
+                titleZh: "日常生活",
+                titleEn: "Daily Life",
+                photos: [
+                    { path: "photos/daily/photo.jpg.jpg", zh: "日常", en: "Daily life" },
+                    { path: "photos/daily/52C02F0D-D9F0-4F4D-BDBC-641634FA7913.jpg", zh: "日常", en: "Daily life" },
+                    { path: "photos/daily/B239E7B7-BC21-4627-A4AE-2CE2C7BAAAF6.jpg", zh: "日常", en: "Daily life" },
+                    { path: "photos/daily/B7AFAF56-CD73-482C-990A-A179E633DB1C.jpg", zh: "與貓咪", en: "With my cat" },
+                    { path: "photos/daily/S__102998032_0.jpg", zh: "日常", en: "Daily life" },
+                ]
+            }
+        ];
+
+        // 側邊欄按鈕
+        const sidebar = document.getElementById('photo-sidebar');
+        const allBtn = document.createElement('button');
+        allBtn.className = 'active';
+        allBtn.innerHTML = '<span class="zh inline">全部</span><span class="en inline">All</span>';
+        allBtn.onclick = () => filterCategory('all');
+        sidebar.appendChild(allBtn);
+        categories.forEach(cat => {
+            const btn = document.createElement('button');
+            btn.dataset.cat = cat.id;
+            btn.innerHTML = `<span class="zh inline">${cat.titleZh}</span><span class="en inline">${cat.titleEn}</span>`;
+            btn.onclick = () => filterCategory(cat.id);
+            sidebar.appendChild(btn);
+        });
+
+        function filterCategory(id) {
+            sidebar.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+            if (id === 'all') {
+                sidebar.querySelector('button').classList.add('active');
+                document.querySelectorAll('.category-block').forEach(b => b.classList.remove('hidden'));
+            } else {
+                sidebar.querySelector(`button[data-cat="${id}"]`).classList.add('active');
+                document.querySelectorAll('.category-block').forEach(b => {
+                    b.classList.toggle('hidden', b.dataset.category !== id);
+                });
+            }
+        }
+
+        // 依分類產生照片牆
+        const gallery = document.getElementById('photo-gallery');
+        categories.forEach(cat => {
+            const block = document.createElement('div');
+            block.className = 'category-block';
+            block.dataset.category = cat.id;
+
+            const titleZh = document.createElement('h3');
+            titleZh.className = 'category-title zh';
+            titleZh.textContent = cat.titleZh;
+
+            const titleEn = document.createElement('h3');
+            titleEn.className = 'category-title en';
+            titleEn.textContent = cat.titleEn;
+
+            const grid = document.createElement('div');
+            grid.className = 'gallery';
+
+            cat.photos.forEach(photo => {
+                const wrapper = document.createElement('div');
+                wrapper.className = 'gallery-item';
+
+                const img = document.createElement('img');
+                img.src = photo.path;
+                img.alt = photo.zh;
+                img.loading = 'lazy';
+
+                const capZh = document.createElement('p');
+                capZh.className = 'gallery-caption zh';
+                capZh.textContent = photo.zh;
+
+                const capEn = document.createElement('p');
+                capEn.className = 'gallery-caption en';
+                capEn.textContent = photo.en;
+
+                wrapper.appendChild(img);
+                wrapper.appendChild(capZh);
+                wrapper.appendChild(capEn);
+                grid.appendChild(wrapper);
+            });
+
+            block.appendChild(titleZh);
+            block.appendChild(titleEn);
+            block.appendChild(grid);
+
+            // PDF 嵌入
+            if (cat.pdf) {
+                const pdfBox = document.createElement('div');
+                pdfBox.style.cssText = 'margin-top:16px;';
+                const pdfEmbed = document.createElement('iframe');
+                pdfEmbed.src = cat.pdf.path;
+                pdfEmbed.style.cssText = 'width:100%;height:500px;border:none;border-radius:12px;box-shadow:0 4px 24px rgba(26,35,50,0.08);';
+                const pdfCapZh = document.createElement('p');
+                pdfCapZh.className = 'gallery-caption zh';
+                pdfCapZh.textContent = cat.pdf.zh;
+                const pdfCapEn = document.createElement('p');
+                pdfCapEn.className = 'gallery-caption en';
+                pdfCapEn.textContent = cat.pdf.en;
+                const pdfLink = document.createElement('a');
+                pdfLink.href = cat.pdf.path;
+                pdfLink.target = '_blank';
+                pdfLink.style.cssText = 'display:inline-block;margin-top:10px;padding:8px 20px;background:var(--accent);color:white;border-radius:20px;text-decoration:none;font-size:0.9rem;font-weight:500;';
+                pdfLink.innerHTML = '<span class="zh inline">開啟完整簡報</span><span class="en inline">Open Full Slides</span>';
+                pdfBox.appendChild(pdfEmbed);
+                pdfBox.appendChild(pdfCapZh);
+                pdfBox.appendChild(pdfCapEn);
+                pdfBox.appendChild(pdfLink);
+                block.appendChild(pdfBox);
+            }
+
+            gallery.appendChild(block);
+        });
+
+        // Lightbox 功能
+        const overlay = document.createElement('div');
+        overlay.className = 'lightbox-overlay';
+        const closeBtn = document.createElement('span');
+        closeBtn.className = 'lightbox-close';
+        closeBtn.textContent = '×';
+        const lightboxImg = document.createElement('img');
+        overlay.appendChild(closeBtn);
+        overlay.appendChild(lightboxImg);
+        document.body.appendChild(overlay);
+
+        function closeLightbox() {
+            overlay.classList.remove('active');
+            setTimeout(() => overlay.style.display = 'none', 300);
+        }
+
+        overlay.addEventListener('click', closeLightbox);
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+
+        document.querySelectorAll('.gallery-item img').forEach(img => {
+            img.style.cursor = 'pointer';
+            img.addEventListener('click', () => {
+                lightboxImg.src = img.src;
+                overlay.style.display = 'flex';
+                requestAnimationFrame(() => overlay.classList.add('active'));
+            });
+        });
+    </script>
+
+</body>
+</html>
