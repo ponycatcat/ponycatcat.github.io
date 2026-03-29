@@ -533,6 +533,174 @@
             }
         }
 
+        /* Platform Section */
+        .platform-hero {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .platform-hero p {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.9;
+        }
+
+        .platform-link-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 32px;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .platform-link-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(196,154,108,0.35);
+            background: var(--accent-dark);
+        }
+
+        .role-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 36px;
+        }
+
+        .role-tab {
+            padding: 10px 28px;
+            border: 2px solid var(--accent-light);
+            background: white;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--accent);
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+
+        .role-tab.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+        }
+
+        .role-content {
+            display: none;
+        }
+
+        .role-content.active {
+            display: block;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .feature-card .feature-icon {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .feature-card h4 {
+            font-size: 1rem;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .feature-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-card ul li {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            padding: 3px 0;
+            padding-left: 16px;
+            position: relative;
+        }
+
+        .feature-card ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 6px;
+            height: 6px;
+            background: var(--accent-light);
+            border-radius: 50%;
+        }
+
+        .compare-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-top: 36px;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            font-size: 0.9rem;
+        }
+
+        .compare-table thead {
+            background: var(--primary);
+            color: white;
+        }
+
+        .compare-table th {
+            padding: 14px 18px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .compare-table th:not(:first-child) {
+            text-align: center;
+        }
+
+        .compare-table td {
+            padding: 12px 18px;
+            border-bottom: 1px solid #f0ede8;
+            color: var(--text-light);
+        }
+
+        .compare-table td:not(:first-child) {
+            text-align: center;
+        }
+
+        .compare-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .compare-table tr:hover td {
+            background: #faf9f7;
+        }
+
+        .check-yes { color: var(--accent); font-weight: 700; }
+        .check-no { color: #ccc; }
+
         /* CTA */
         .cta {
             text-align: center;
@@ -640,6 +808,10 @@
         <a href="#philosophy" data-section="philosophy">
             <span class="zh inline">教學理念</span>
             <span class="en inline">Philosophy</span>
+        </a>
+        <a href="#platform" data-section="platform">
+            <span class="zh inline">學習平台</span>
+            <span class="en inline">Platform</span>
         </a>
         <a href="#photos" data-section="photos">
             <span class="zh inline">教學紀錄</span>
@@ -924,6 +1096,368 @@
         </div>
     </section>
 
+    <!-- Learning Platform -->
+    <section id="platform">
+        <div class="section-inner">
+            <h2 class="section-title fade-in">
+                <span class="zh inline">學生專屬學習平台</span>
+                <span class="en inline">Exclusive Learning Platform</span>
+            </h2>
+            <div class="platform-hero fade-in">
+                <p>
+                    <span class="zh">我為學生打造了專屬的線上學習管理平台，讓學習不只在上課時間。學生可以隨時提問、追蹤成績，家長也能即時掌握孩子的學習狀況。</span>
+                    <span class="en">I built an exclusive online learning platform for my students, so learning doesn't stop after class. Students can ask questions anytime and track their grades, while parents can stay updated on their child's progress.</span>
+                </p>
+                <a href="https://study-168ab.web.app" class="platform-link-btn" target="_blank">
+                    <span class="zh inline">前往學習平台</span>
+                    <span class="en inline">Visit Platform</span>
+                </a>
+            </div>
+
+            <!-- Role Tabs -->
+            <div class="role-tabs fade-in">
+                <button class="role-tab active" onclick="switchRole('student')">
+                    <span class="zh inline">學生功能</span>
+                    <span class="en inline">Student</span>
+                </button>
+                <button class="role-tab" onclick="switchRole('parent')">
+                    <span class="zh inline">家長功能</span>
+                    <span class="en inline">Parent</span>
+                </button>
+            </div>
+
+            <!-- Student Features -->
+            <div class="role-content active" id="role-student">
+                <div class="feature-grid">
+                    <div class="feature-card fade-in">
+                        <div class="feature-icon">&#x2753;</div>
+                        <h4>
+                            <span class="zh inline">科目提問</span>
+                            <span class="en inline">Subject Q&A</span>
+                        </h4>
+                        <ul>
+                            <li>
+                                <span class="zh inline">依年級分類（國中/高一~高三/學測/分科）</span>
+                                <span class="en inline">Categorized by grade level</span>
+                            </li>
+                            <li>
+                                <span class="zh inline">文字 + 檔案上傳（圖片、PDF、Word 等）</span>
+                                <span class="en inline">Text + file upload (images, PDF, Word, etc.)</span>
+                            </li>
+                            <li>
+                                <span class="zh inline">老師回覆形成問答串</span>
+                                <span class="en inline">Teacher replies form Q&A threads</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="feature-card fade-in">
+                        <div class="feature-icon">&#x1F4CA;</div>
+                        <h4>
+                            <span class="zh inline">成績紀錄與分析</span>
+                            <span class="en inline">Grade Tracking & Analysis</span>
+                        </h4>
+                        <ul>
+                            <li>
+                                <span class="zh inline">登錄段考、模擬考、小考成績</span>
+                                <span class="en inline">Log exam, mock test, and quiz scores</span>
+                            </li>
+                            <li>
+                                <span class="zh inline">三種圖表：折線圖、直方圖、雷達圖</span>
+                                <span class="en inline">3 chart types: line, bar, radar</span>
+                            </li>
+                            <li>
+                                <span class="zh inline">可上傳考卷照片</span>
+                                <span class="en inline">Upload exam paper photos</span>
+                            </li>
+                            <li>
+                                <span class="zh inline">隱私鎖定：可設為不公開</span>
+                                <span class="en inline">Privacy lock: hide specific grades</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="feature-card fade-in">
+                        <div class="feature-icon">&#x1F4DD;</div>
+                        <h4>
+                            <span class="zh inline">作業管理</span>
+                            <span class="en inline">Homework Tracking</span>
+                        </h4>
+                        <ul>
+                            <li>
+                                <span class="zh inline">登錄作業：日期、科目、單元、頁數</span>
+                                <span class="en inline">Log homework: date, subject, unit, pages</span>
+                            </li>
+                            <li>
+                                <span class="zh inline">狀態追蹤：待檢查 / 已完成</span>
+                                <span class="en inline">Status: pending / completed</span>
+                            </li>
+                            <li>
+                                <span class="zh inline">完成作業可獲得貓咪點數</span>
+                                <span class="en inline">Earn cat points upon completion</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="feature-card fade-in">
+                        <div class="feature-icon">&#x1F431;</div>
+                        <h4>
+                            <span class="zh inline">貓咪點數 & 主題商店</span>
+                            <span class="en inline">Cat Points & Theme Shop</span>
+                        </h4>
+                        <ul>
+                            <li>
+                                <span class="zh inline">提問、交作業、認證成績皆可獲得點數</span>
+                                <span class="en inline">Earn points from Q&A, homework, grades</span>
+                            </li>
+                            <li>
+                                <span class="zh inline">純色 / 動物 / 精美 / 自定義主題</span>
+                                <span class="en inline">Solid / animal / premium / custom themes</span>
+                            </li>
+                            <li>
+                                <span class="zh inline">自定義主題：自選角色＋顏色＋名稱</span>
+                                <span class="en inline">Custom: choose character + color + name</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="feature-card fade-in">
+                        <div class="feature-icon">&#x1F514;</div>
+                        <h4>
+                            <span class="zh inline">通知系統</span>
+                            <span class="en inline">Notifications</span>
+                        </h4>
+                        <ul>
+                            <li>
+                                <span class="zh inline">老師回覆即時通知</span>
+                                <span class="en inline">Instant notification when teacher replies</span>
+                            </li>
+                            <li>
+                                <span class="zh inline">支援瀏覽器推播通知</span>
+                                <span class="en inline">Browser push notifications supported</span>
+                            </li>
+                            <li>
+                                <span class="zh inline">帳號審核結果通知</span>
+                                <span class="en inline">Account review result alerts</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="feature-card fade-in">
+                        <div class="feature-icon">&#x1F6E1;</div>
+                        <h4>
+                            <span class="zh inline">帳號與導覽</span>
+                            <span class="en inline">Account & Guide</span>
+                        </h4>
+                        <ul>
+                            <li>
+                                <span class="zh inline">Google 帳號一鍵登入</span>
+                                <span class="en inline">One-click Google login</span>
+                            </li>
+                            <li>
+                                <span class="zh inline">自訂名稱與頭貼</span>
+                                <span class="en inline">Custom name & avatar</span>
+                            </li>
+                            <li>
+                                <span class="zh inline">首次登入互動式操作導覽</span>
+                                <span class="en inline">Interactive onboarding guide</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Parent Features -->
+            <div class="role-content" id="role-parent">
+                <div class="feature-grid">
+                    <div class="feature-card fade-in">
+                        <div class="feature-icon">&#x1F4C8;</div>
+                        <h4>
+                            <span class="zh inline">成績查看</span>
+                            <span class="en inline">Grade Monitoring</span>
+                        </h4>
+                        <ul>
+                            <li>
+                                <span class="zh inline">查看孩子成績紀錄與趨勢圖</span>
+                                <span class="en inline">View child's grades & trend charts</span>
+                            </li>
+                            <li>
+                                <span class="zh inline">依科目篩選，圖表同步更新</span>
+                                <span class="en inline">Filter by subject, charts update in sync</span>
+                            </li>
+                            <li>
+                                <span class="zh inline">尊重學生隱私：鎖定成績不顯示</span>
+                                <span class="en inline">Respects privacy: locked grades hidden</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="feature-card fade-in">
+                        <div class="feature-icon">&#x1F4CA;</div>
+                        <h4>
+                            <span class="zh inline">提問頻率分析</span>
+                            <span class="en inline">Q&A Frequency Analysis</span>
+                        </h4>
+                        <ul>
+                            <li>
+                                <span class="zh inline">近 8 週提問次數長條圖</span>
+                                <span class="en inline">Bar chart of questions over 8 weeks</span>
+                            </li>
+                            <li>
+                                <span class="zh inline">本週提問數、週平均、與上週比較</span>
+                                <span class="en inline">This week's count, average, vs. last week</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="feature-card fade-in">
+                        <div class="feature-icon">&#x1F514;</div>
+                        <h4>
+                            <span class="zh inline">即時通知</span>
+                            <span class="en inline">Real-time Notifications</span>
+                        </h4>
+                        <ul>
+                            <li>
+                                <span class="zh inline">孩子提問被老師回覆時通知</span>
+                                <span class="en inline">Notified when teacher replies to child</span>
+                            </li>
+                            <li>
+                                <span class="zh inline">孩子登錄新成績時通知</span>
+                                <span class="en inline">Notified when child logs new grades</span>
+                            </li>
+                            <li>
+                                <span class="zh inline">支援瀏覽器推播通知</span>
+                                <span class="en inline">Browser push notifications supported</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="feature-card fade-in">
+                        <div class="feature-icon">&#x1F6E1;</div>
+                        <h4>
+                            <span class="zh inline">帳號與導覽</span>
+                            <span class="en inline">Account & Guide</span>
+                        </h4>
+                        <ul>
+                            <li>
+                                <span class="zh inline">Google 帳號登入，管理員審核開通</span>
+                                <span class="en inline">Google login, admin-approved access</span>
+                            </li>
+                            <li>
+                                <span class="zh inline">管理員指定可查看的科目</span>
+                                <span class="en inline">Admin assigns viewable subjects</span>
+                            </li>
+                            <li>
+                                <span class="zh inline">首次登入家長版互動式導覽</span>
+                                <span class="en inline">Parent-version onboarding guide</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comparison Table -->
+            <table class="compare-table fade-in">
+                <thead>
+                    <tr>
+                        <th>
+                            <span class="zh inline">功能</span>
+                            <span class="en inline">Feature</span>
+                        </th>
+                        <th>
+                            <span class="zh inline">學生</span>
+                            <span class="en inline">Student</span>
+                        </th>
+                        <th>
+                            <span class="zh inline">家長</span>
+                            <span class="en inline">Parent</span>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <span class="zh inline">Google 登入 & 審核</span>
+                            <span class="en inline">Google Login & Review</span>
+                        </td>
+                        <td class="check-yes">&#x2714;</td>
+                        <td class="check-yes">&#x2714;</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="zh inline">科目提問</span>
+                            <span class="en inline">Subject Q&A</span>
+                        </td>
+                        <td class="check-yes">&#x2714;</td>
+                        <td class="check-no">&#x2014;</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="zh inline">成績登錄</span>
+                            <span class="en inline">Grade Logging</span>
+                        </td>
+                        <td class="check-yes">&#x2714;</td>
+                        <td class="check-no">&#x2014;</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="zh inline">成績圖表分析</span>
+                            <span class="en inline">Grade Charts</span>
+                        </td>
+                        <td>
+                            <span class="zh inline check-yes">&#x2714; 3 種圖表</span>
+                            <span class="en inline check-yes">&#x2714; 3 charts</span>
+                        </td>
+                        <td>
+                            <span class="zh inline check-yes">&#x2714; 折線圖</span>
+                            <span class="en inline check-yes">&#x2714; Line chart</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="zh inline">成績隱私鎖定</span>
+                            <span class="en inline">Grade Privacy Lock</span>
+                        </td>
+                        <td class="check-yes">&#x2714;</td>
+                        <td class="check-no">&#x2014;</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="zh inline">作業管理</span>
+                            <span class="en inline">Homework Tracking</span>
+                        </td>
+                        <td class="check-yes">&#x2714;</td>
+                        <td class="check-no">&#x2014;</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="zh inline">提問頻率分析</span>
+                            <span class="en inline">Q&A Frequency</span>
+                        </td>
+                        <td class="check-no">&#x2014;</td>
+                        <td class="check-yes">&#x2714;</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="zh inline">貓咪點數 & 商店</span>
+                            <span class="en inline">Cat Points & Shop</span>
+                        </td>
+                        <td class="check-yes">&#x2714;</td>
+                        <td class="check-no">&#x2014;</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="zh inline">通知系統</span>
+                            <span class="en inline">Notifications</span>
+                        </td>
+                        <td class="check-yes">&#x2714;</td>
+                        <td class="check-yes">&#x2714;</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="zh inline">操作導覽</span>
+                            <span class="en inline">Guided Tour</span>
+                        </td>
+                        <td class="check-yes">&#x2714;</td>
+                        <td class="check-yes">&#x2714;</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
     <!-- Photo Gallery by Category -->
     <section id="photos">
         <div class="section-inner">
@@ -968,6 +1502,16 @@
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.classList.toggle('active', btn.textContent.trim() === (lang === 'en' ? 'EN' : '中文'));
             });
+        }
+
+        // Platform role tab switching
+        function switchRole(role) {
+            document.querySelectorAll('.role-tab').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.role-content').forEach(c => c.classList.remove('active'));
+            document.querySelector(`.role-tab[onclick="switchRole('${role}')"]`).classList.add('active');
+            document.getElementById('role-' + role).classList.add('active');
+            // Re-observe fade-in elements in the newly shown tab
+            document.getElementById('role-' + role).querySelectorAll('.fade-in:not(.visible)').forEach(el => fadeObserver.observe(el));
         }
 
         // Navbar scroll spy
