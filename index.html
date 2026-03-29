@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>黃芃佾 Pony - 家教老師 | Private Tutor</title>
+    <meta name="description" content="黃芃佾（Pony）— 東吳大學資管系，擅長國文、數學、英文家教，擁有豐富教學經驗，用耐心陪伴每位學生找到學習節奏。">
+    <meta property="og:title" content="黃芃佾 Pony - 家教老師">
+    <meta property="og:description" content="擅長國文、數學、英文，擁有豐富家教與教學經驗。用溫暖且有耐心的方式，幫助每位學生找到學習的節奏。">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="photos/daily/photo.jpg">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
 
@@ -51,7 +57,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 4px;
             padding: 12px 20px;
             flex-wrap: wrap;
         }
@@ -71,28 +77,29 @@
             color: white;
         }
 
-        /* Language Toggle */
-        .lang-toggle {
-            position: fixed;
-            top: 60px;
-            right: 20px;
-            z-index: 1000;
+        .navbar a.active {
+            background: rgba(196,154,108,0.3);
+            color: white;
+        }
+
+        .nav-lang-toggle {
             display: flex;
-            background: white;
-            border-radius: 30px;
-            box-shadow: 0 2px 16px rgba(0,0,0,0.12);
+            margin-left: 12px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
             overflow: hidden;
         }
 
         .lang-btn {
-            padding: 8px 18px;
+            padding: 6px 14px;
             border: none;
             background: transparent;
             cursor: pointer;
-            font-size: 14px;
+            font-size: 0.85rem;
             font-weight: 500;
-            color: var(--text-light);
+            color: rgba(255,255,255,0.6);
             transition: all 0.3s;
+            font-family: inherit;
         }
 
         .lang-btn.active {
@@ -251,6 +258,15 @@
         .card p {
             color: var(--text-light);
             font-size: 0.95rem;
+        }
+
+        .card .card-detail {
+            margin-top: 10px;
+            font-size: 0.82rem;
+            color: var(--accent);
+            font-weight: 500;
+            padding-top: 10px;
+            border-top: 1px solid #eee;
         }
 
         /* Timeline */
@@ -521,7 +537,7 @@
         .cta {
             text-align: center;
             padding: 80px 20px;
-            background: linear-gradient(135deg, #e85d04, #f48c06, #e85d04);
+            background: linear-gradient(135deg, var(--primary) 0%, #2c3e50 50%, var(--primary) 100%);
             color: white;
         }
 
@@ -533,15 +549,15 @@
 
         .cta p {
             font-size: 1.15rem;
-            opacity: 0.95;
+            opacity: 0.85;
             margin-bottom: 30px;
         }
 
         .cta-btn {
             display: inline-block;
             padding: 16px 42px;
-            background: white;
-            color: #e85d04;
+            background: var(--accent);
+            color: white;
             text-decoration: none;
             border-radius: 30px;
             font-size: 1.15rem;
@@ -552,6 +568,7 @@
         .cta-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25);
+            background: var(--accent-dark);
         }
 
         /* Footer */
@@ -570,6 +587,18 @@
         body.lang-en .en.inline { display: inline; }
         body.lang-en .zh.inline { display: none; }
 
+        /* Entrance Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .hero-text h1 { font-size: 2.2rem; }
@@ -577,6 +606,10 @@
             .hero-content { gap: 30px; }
             section { padding: 50px 20px; }
             .philosophy-box { padding: 28px; }
+            .navbar { gap: 2px; padding: 10px 12px; }
+            .navbar a { font-size: 0.8rem; padding: 5px 10px; }
+            .nav-lang-toggle { margin-left: 4px; }
+            .lang-btn { padding: 5px 10px; font-size: 0.8rem; }
         }
     </style>
 </head>
@@ -584,50 +617,48 @@
 
     <!-- Navbar -->
     <nav class="navbar">
-        <a href="#hero">
+        <a href="#hero" data-section="hero">
             <span class="zh inline">首頁</span>
             <span class="en inline">Home</span>
         </a>
-        <a href="#subjects">
+        <a href="#subjects" data-section="subjects">
             <span class="zh inline">教學科目</span>
             <span class="en inline">Subjects</span>
         </a>
-        <a href="#experience">
+        <a href="#experience" data-section="experience">
             <span class="zh inline">教學經歷</span>
             <span class="en inline">Experience</span>
         </a>
-        <a href="#volunteer">
+        <a href="#volunteer" data-section="volunteer">
             <span class="zh inline">志工經歷</span>
             <span class="en inline">Volunteer</span>
         </a>
-        <a href="#certs">
+        <a href="#certs" data-section="certs">
             <span class="zh inline">成績檢定</span>
             <span class="en inline">Scores</span>
         </a>
-        <a href="#philosophy">
+        <a href="#philosophy" data-section="philosophy">
             <span class="zh inline">教學理念</span>
             <span class="en inline">Philosophy</span>
         </a>
-        <a href="#photos">
+        <a href="#photos" data-section="photos">
             <span class="zh inline">教學紀錄</span>
             <span class="en inline">Portfolio</span>
         </a>
-        <a href="#contact">
+        <a href="#contact" data-section="contact">
             <span class="zh inline">聯繫我</span>
             <span class="en inline">Contact</span>
         </a>
+        <div class="nav-lang-toggle">
+            <button class="lang-btn active" onclick="setLang('zh')">中文</button>
+            <button class="lang-btn" onclick="setLang('en')">EN</button>
+        </div>
     </nav>
-
-    <!-- Language Toggle -->
-    <div class="lang-toggle">
-        <button class="lang-btn active" onclick="setLang('zh')">中文</button>
-        <button class="lang-btn" onclick="setLang('en')">EN</button>
-    </div>
 
     <!-- Hero -->
     <section class="hero" id="hero">
         <div class="hero-content">
-            <img src="photos/daily/photo.jpg.jpg" alt="Pony" class="hero-photo">
+            <img src="photos/daily/photo.jpg" alt="Pony" class="hero-photo">
             <div class="hero-text">
                 <h1>
                     <span class="zh inline">黃芃佾</span>
@@ -659,12 +690,12 @@
     <!-- Subjects -->
     <section id="subjects">
         <div class="section-inner">
-            <h2 class="section-title">
+            <h2 class="section-title fade-in">
                 <span class="zh inline">教學科目</span>
                 <span class="en inline">Subjects</span>
             </h2>
             <div class="cards">
-                <div class="card">
+                <div class="card fade-in">
                     <div class="card-icon">&#x1F4D0;</div>
                     <h3>
                         <span class="zh inline">數學</span>
@@ -674,8 +705,12 @@
                         <span class="zh">國小 ~ 高中數學、學測數B、分科數甲</span>
                         <span class="en">Elementary to high school math, GSAT Math B, AST Math A</span>
                     </p>
+                    <div class="card-detail">
+                        <span class="zh inline">適合對象：國小至高三 / 1 對 1 客製化教學</span>
+                        <span class="en inline">For: Grades 1-12 / 1-on-1 customized lessons</span>
+                    </div>
                 </div>
-                <div class="card">
+                <div class="card fade-in">
                     <div class="card-icon">&#x1F4DA;</div>
                     <h3>
                         <span class="zh inline">國文</span>
@@ -685,8 +720,12 @@
                         <span class="zh">學測國文頂標13級分、作文19分</span>
                         <span class="en">GSAT Chinese: Top-tier Level 13, Essay: 19/21</span>
                     </p>
+                    <div class="card-detail">
+                        <span class="zh inline">適合對象：國中至高三 / 閱讀理解＋作文訓練</span>
+                        <span class="en inline">For: Grades 7-12 / Reading comprehension + essay training</span>
+                    </div>
                 </div>
-                <div class="card">
+                <div class="card fade-in">
                     <div class="card-icon">&#x1F30F;</div>
                     <h3>
                         <span class="zh inline">英文</span>
@@ -696,8 +735,12 @@
                         <span class="zh">TOEIC 藍色證書、全民英檢中級通過</span>
                         <span class="en">TOEIC Blue Certificate, GEPT Intermediate Certified</span>
                     </p>
+                    <div class="card-detail">
+                        <span class="zh inline">適合對象：國小至高中 / 文法、閱讀、聽力</span>
+                        <span class="en inline">For: Grades 1-12 / Grammar, reading, listening</span>
+                    </div>
                 </div>
-                <div class="card">
+                <div class="card fade-in">
                     <div class="card-icon">&#x1F3DB;</div>
                     <h3>
                         <span class="zh inline">社會科</span>
@@ -707,6 +750,10 @@
                         <span class="zh">學測社會、公民與社會</span>
                         <span class="en">GSAT Social Studies, Civics & Society</span>
                     </p>
+                    <div class="card-detail">
+                        <span class="zh inline">適合對象：高中生 / 觀念統整＋考題練習</span>
+                        <span class="en inline">For: High school / Concept integration + practice</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -715,33 +762,33 @@
     <!-- Experience Timeline -->
     <section id="experience">
         <div class="section-inner">
-            <h2 class="section-title">
+            <h2 class="section-title fade-in">
                 <span class="zh inline">教學經歷</span>
                 <span class="en inline">Teaching Experience</span>
             </h2>
             <div class="timeline">
-                <div class="timeline-item">
+                <div class="timeline-item fade-in">
                     <div class="timeline-year">2026</div>
                     <h3>
                         <span class="zh inline">國三會考 + 高一數學 & 社會家教</span>
                         <span class="en inline">9th Grade Exam Prep + High School Math & Social Studies Tutor (Grade 10)</span>
                     </h3>
                 </div>
-                <div class="timeline-item">
+                <div class="timeline-item fade-in">
                     <div class="timeline-year">2025–2026</div>
                     <h3>
                         <span class="zh inline">高二數學家教（持續至學測）</span>
                         <span class="en inline">High School Math Tutor (Grade 11, ongoing until GSAT)</span>
                     </h3>
                 </div>
-                <div class="timeline-item">
+                <div class="timeline-item fade-in">
                     <div class="timeline-year">2025</div>
                     <h3>
                         <span class="zh inline">學測社會家教</span>
                         <span class="en inline">GSAT Social Studies Tutor</span>
                     </h3>
                 </div>
-                <div class="timeline-item">
+                <div class="timeline-item fade-in">
                     <div class="timeline-year">2025</div>
                     <h3>
                         <span class="zh inline">教育部學伴計畫</span>
@@ -752,28 +799,28 @@
                         <span class="en">Tutored a 8th grader and a 4th grader in Math</span>
                     </p>
                 </div>
-                <div class="timeline-item">
+                <div class="timeline-item fade-in">
                     <div class="timeline-year">2025</div>
                     <h3>
                         <span class="zh inline">TOP 全英文營隊帶班助教</span>
                         <span class="en inline">Teaching Assistant at TOP English Camp</span>
                     </h3>
                 </div>
-                <div class="timeline-item">
+                <div class="timeline-item fade-in">
                     <div class="timeline-year">2025</div>
                     <h3>
                         <span class="zh inline">分科數學 & 公民家教</span>
                         <span class="en inline">AST Math & Civics Tutor</span>
                     </h3>
                 </div>
-                <div class="timeline-item">
+                <div class="timeline-item fade-in">
                     <div class="timeline-year">2024</div>
                     <h3>
                         <span class="zh inline">嘉義女中高二數學 & 國文家教</span>
                         <span class="en inline">Chiayi Girls' High School Math & Chinese Tutor (Grade 11)</span>
                     </h3>
                 </div>
-                <div class="timeline-item">
+                <div class="timeline-item fade-in">
                     <div class="timeline-year">2024</div>
                     <h3>
                         <span class="zh inline">國小美語教學</span>
@@ -787,12 +834,12 @@
     <!-- Volunteer / Special Experience -->
     <section id="volunteer">
         <div class="section-inner">
-            <h2 class="section-title">
+            <h2 class="section-title fade-in">
                 <span class="zh inline">志工與特別經歷</span>
                 <span class="en inline">Volunteer & Special Experience</span>
             </h2>
             <div class="cards">
-                <div class="card">
+                <div class="card fade-in">
                     <div class="card-icon">&#x2600;</div>
                     <h3>
                         <span class="zh inline">小太陽協會</span>
@@ -803,7 +850,7 @@
                         <span class="en">Tutored students from disadvantaged families in Math, English, and Physics</span>
                     </p>
                 </div>
-                <div class="card">
+                <div class="card fade-in">
                     <div class="card-icon">&#x1F4BB;</div>
                     <h3>
                         <span class="zh inline">線上輔導</span>
@@ -821,11 +868,11 @@
     <!-- Certifications -->
     <section id="certs">
         <div class="section-inner">
-            <h2 class="section-title">
+            <h2 class="section-title fade-in">
                 <span class="zh inline">成績與檢定</span>
                 <span class="en inline">Scores & Certifications</span>
             </h2>
-            <div class="badges">
+            <div class="badges fade-in">
                 <span class="badge">TOEIC 750 (2025)</span>
                 <span class="badge">
                     <span class="zh inline">全民英檢中級 (2021)</span>
@@ -858,7 +905,7 @@
     <!-- Teaching Philosophy -->
     <section id="philosophy">
         <div class="section-inner">
-            <div class="philosophy-box">
+            <div class="philosophy-box fade-in">
                 <h3>
                     <span class="zh inline">教學理念</span>
                     <span class="en inline">Teaching Philosophy</span>
@@ -880,7 +927,7 @@
     <!-- Photo Gallery by Category -->
     <section id="photos">
         <div class="section-inner">
-            <h2 class="section-title">
+            <h2 class="section-title fade-in">
                 <span class="zh inline">教學紀錄</span>
                 <span class="en inline">Teaching Portfolio</span>
             </h2>
@@ -893,25 +940,29 @@
 
     <!-- CTA -->
     <section class="cta" id="contact">
-        <h2>
+        <h2 class="fade-in">
             <span class="zh inline">想找家教？歡迎聯繫我！</span>
             <span class="en inline">Looking for a Tutor? Contact Me!</span>
         </h2>
-        <p>
+        <p class="fade-in">
             <span class="zh inline">讓我陪你一起找到學習的方法</span>
             <span class="en inline">Let me help you find your way to learn</span>
         </p>
-        <a href="https://line.me/ti/p/~alicehuang0718" class="cta-btn" target="_blank">
+        <a href="https://line.me/ti/p/~alicehuang0718" class="cta-btn fade-in" target="_blank">
             <span class="zh inline">加 LINE 聯繫我</span>
             <span class="en inline">Add me on LINE</span>
         </a>
     </section>
 
     <footer>
-        &copy; 2025 黃芃佾 Pony Huang. All rights reserved.
+        &copy; <span id="footer-year"></span> 黃芃佾 Pony Huang. All rights reserved.
     </footer>
 
     <script>
+        // Footer year
+        document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+        // Language toggle
         function setLang(lang) {
             document.body.className = lang === 'en' ? 'lang-en' : '';
             document.querySelectorAll('.lang-btn').forEach(btn => {
@@ -919,9 +970,37 @@
             });
         }
 
+        // Navbar scroll spy
+        const navLinks = document.querySelectorAll('.navbar a[data-section]');
+        const sections = document.querySelectorAll('section[id]');
+
+        const sectionObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.id;
+                    navLinks.forEach(link => {
+                        link.classList.toggle('active', link.dataset.section === id);
+                    });
+                }
+            });
+        }, { rootMargin: '-20% 0px -70% 0px' });
+
+        sections.forEach(section => sectionObserver.observe(section));
+
+        // Entrance animations
+        const fadeObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    fadeObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
+
         /*
          * 照片分類設定 — 按資料夾結構排列
-         * 每個分類有：titleZh, titleEn, basePath, photos[]
          */
         const categories = [
             {
@@ -985,14 +1064,14 @@
                     { path: "photos/解題與部分筆記/公民/S__7151626_0.jpg", zh: "公民解題", en: "Civics notes" },
                     { path: "photos/解題與部分筆記/公民/S__7151627_0.jpg", zh: "公民解題", en: "Civics notes" },
                 ],
-                pdf: { path: "photos/解題與部分筆記/學伴/113年教育部數位學伴計畫.pdf.pdf", zh: "113年教育部數位學伴計畫簡報", en: "2024 MOE Digital Companion Program Slides" }
+                pdf: { path: "photos/解題與部分筆記/學伴/113年教育部數位學伴計畫.pdf", zh: "113年教育部數位學伴計畫簡報", en: "2024 MOE Digital Companion Program Slides" }
             },
             {
                 id: "daily",
                 titleZh: "日常生活",
                 titleEn: "Daily Life",
                 photos: [
-                    { path: "photos/daily/photo.jpg.jpg", zh: "日常", en: "Daily life" },
+                    { path: "photos/daily/photo.jpg", zh: "日常", en: "Daily life" },
                     { path: "photos/daily/52C02F0D-D9F0-4F4D-BDBC-641634FA7913.jpg", zh: "日常", en: "Daily life" },
                     { path: "photos/daily/B239E7B7-BC21-4627-A4AE-2CE2C7BAAAF6.jpg", zh: "日常", en: "Daily life" },
                     { path: "photos/daily/B7AFAF56-CD73-482C-990A-A179E633DB1C.jpg", zh: "與貓咪", en: "With my cat" },
@@ -1107,7 +1186,7 @@
         overlay.className = 'lightbox-overlay';
         const closeBtn = document.createElement('span');
         closeBtn.className = 'lightbox-close';
-        closeBtn.textContent = '×';
+        closeBtn.textContent = '\u00d7';
         const lightboxImg = document.createElement('img');
         overlay.appendChild(closeBtn);
         overlay.appendChild(lightboxImg);
